@@ -107,22 +107,11 @@ class InstallWizardIpkgUpdater(Screen):
 		self.ipkg = IpkgComponent()
 		self.ipkg.addCallback(self.ipkgCallback)
 
-		if self.index == InstallWizard.STATE_CHOISE_CHANNELLIST:
-			self.ipkg.startCmd(cmd, {'package': 'enigma2-plugin-settings-*'})
-		else:
-			self.ipkg.startCmd(cmd, pkg)
+		self.ipkg.startCmd(cmd, pkg)
 
 	def ipkgCallback(self, event, param):
 		if event == IpkgComponent.EVENT_DONE:
 			if self.index == InstallWizard.STATE_UPDATE:
 				config.misc.installwizard.ipkgloaded.value = True
-			elif self.index == InstallWizard.STATE_CHOISE_CHANNELLIST:
-				if self.state == 0:
-					self.ipkg.startCmd(IpkgComponent.CMD_INSTALL, self.pkg)
-					self.state = 1
-					return
-				else:
-					config.misc.installwizard.channellistdownloaded.value = True
-					eDVBDB.getInstance().reloadBouquets()
-					eDVBDB.getInstance().reloadServicelist()
+
 			self.close()
