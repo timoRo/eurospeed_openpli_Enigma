@@ -183,8 +183,6 @@ class VideoWizard(WizardLanguage, Rc):
 				self.hw.saveMode("DVI", "720p", "multi")
 			elif number == 2:
 				self.hw.saveMode("DVI", "1080i", "multi")
-			elif number == 3:
-				self.hw.saveMode("Scart", "Multi", "multi")
 			self.hw.setConfiguredMode()
 			self.close()
 
