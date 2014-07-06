@@ -6,7 +6,7 @@ import os
 
 class AVSwitch:
 	def setInput(self, input):
-		INPUT = { "ENCODER": 0, "SCART": 1, "AUX": 2 }
+		INPUT = { "ENCODER": 0, "AUX": 2 }
 		eAVSwitch.getInstance().setInput(INPUT[input])
 
 	def setColorFormat(self, value):
