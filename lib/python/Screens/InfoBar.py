@@ -47,7 +47,7 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 			{
 				"showMovies": (self.showMovies, _("Play recorded movies...")),
 				"showRadio": (self.showRadio, _("Show the radio player...")),
-				"showTv": (self.showTv, _("Show the tv player...")),
+				"showTv": (self.toogleTvRadio, _("Show the tv player/radio player...")),
 			        "openSleepTimer": (self.openSleepTimer, _("Show/Add Sleep Timers")),
                         }, prio=2)
 
@@ -76,7 +76,13 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 		assert InfoBar.instance is None, "class InfoBar is a singleton class and just one instance of this class is allowed!"
 		InfoBar.instance = self
 		
-		
+	def toogleTvRadio(self):
+		if self.radioTV == 1:
+			self.radioTV = 0
+			self.showTv()
+		else:
+			self.radioTV = 1
+			self.showRadio() 		
 		
 	def openSleepTimer(self):
 		from Screens.SleepTimerEdit import SleepTimerEdit
