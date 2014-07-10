@@ -3124,6 +3124,17 @@ class InfoBarPowersaver:
 		if not Screens.Standby.inStandby:
 			print "[InfoBarPowersaver] goto standby"
 			self.session.open(Screens.Standby.Standby)
+			
+class InfoBarSleepTimer:
+	def __init__(self):
+		self.addExtension((self.getSleepTimerName, self.showSleepTimerSetup, lambda: True), "blue")
+
+	def getSleepTimerName(self):
+		return _("Sleep Timer")
+
+	def showSleepTimerSetup(self):
+		from Screens.SleepTimerEdit import SleepTimerEdit
+		self.session.open(SleepTimerEdit)			
 
 class InfoBarHDMI:
 	def __init__(self):
