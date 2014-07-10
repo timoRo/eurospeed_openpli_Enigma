@@ -49,6 +49,7 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 				"showRadio": (self.showRadio, _("Show the radio player...")),
 				"showTv": (self.toogleTvRadio, _("Show the tv player/radio player...")),
 			        "openSleepTimer": (self.openSleepTimer, _("Show/Add Sleep Timers")),
+			        "openFAV": (self.showFAV, _("open Favorites")),
                         }, prio=2)
 
 		self.allowPiP = True
@@ -76,6 +77,11 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 		assert InfoBar.instance is None, "class InfoBar is a singleton class and just one instance of this class is allowed!"
 		InfoBar.instance = self
 		
+	def showFAV(self):
+	        self.showTvChannelList(True)
+	        self.session.execDialog(self.servicelist)
+        	self.servicelist.showFavourites()
+
 	def toogleTvRadio(self):
 		if self.radioTV == 1:
 			self.radioTV = 0
