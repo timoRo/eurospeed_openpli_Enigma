@@ -76,6 +76,7 @@ class InfoBar(InfoBarBase, InfoBarShowHide,
 		self.current_begin_time=0
 		assert InfoBar.instance is None, "class InfoBar is a singleton class and just one instance of this class is allowed!"
 		InfoBar.instance = self
+		self.radioTV = 0
 		
 	def showFAV(self):
 	        self.showTvChannelList(True)
