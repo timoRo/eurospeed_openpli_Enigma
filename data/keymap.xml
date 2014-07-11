@@ -199,6 +199,7 @@
 		<key id="KEY_TEXT" mapto="showText" flags="m" />
 		<key id="KEY_SLEEP" mapto="openSleepTimer" flags="m" />
 		<key id="KEY_FAVORITES" mapto="openFAV" flags="m" />
+		<key id="KEY_RED" mapto="showPluginBrowser" flags="b" />
 	</map>
 
 	<map context="InfobarAudioSelectionActions">
@@ -219,7 +220,6 @@
 	<map context="InfobarRedButtonActions">
 		<device name="dreambox advanced remote control (native)">
 			<!--key id="KEY_RED" mapto="activateRedButton" flags="b" /-->
-			<key id="KEY_RED" mapto="showPluginBrowser" flags="b" />
 		</device>
 	</map>
 
